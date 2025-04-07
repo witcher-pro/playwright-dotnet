@@ -35,6 +35,13 @@ dotnet pack -c Release
 dotnet nuget push .\Playwright\bin\Release\WitcherPro.Playwright.<version>.nupkg -k <api-key-here> -s https://api.nuget.org/v3/index.json
 ```
 
+## Build and Publish to Docker registry
+Make sure to log-in to your Docker account first.
+
+```bash
+.\publish_docker.ps1 -ReleaseChannel "stable" -DockerHubUsername "your_username"
+```
+
 
 ```cs
 using System.Threading.Tasks;
