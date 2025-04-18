@@ -16,6 +16,11 @@ Playwright for .NET is the official language port of [Playwright](https://playwr
 ## API Reference
 [https://playwright.dev/dotnet/docs/api/class-playwright](https://playwright.dev/dotnet/docs/api/class-playwright)
 
+## Pull from the original repository
+```bash
+git pull upstream main
+```
+
 ## Build and Publish
 ```bash
 # 1. Update the version from `/playwright-dotnet/src/Common/Version.props` file
