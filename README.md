@@ -44,7 +44,9 @@ dotnet nuget push .\Playwright\bin\Release\WitcherPro.Playwright.<version>.nupkg
 Make sure to log-in to your Docker account first.
 
 ```bash
+cd ./utils/docker
 .\publish_docker.ps1 -ReleaseChannel "stable" -DockerHubUsername "your_username"
+# .\publish_docker.ps1 -ReleaseChannel "stable" -DockerHubUsername "kaljfeakjldghasioeg"
 ```
 
 
