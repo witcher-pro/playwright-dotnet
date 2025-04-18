@@ -360,3 +360,4 @@ testCert.cer
 coverage-report/
 src/Playwright.Tests/coverage.*.xml
  
+utils/docker/dist/
