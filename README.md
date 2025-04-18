@@ -18,6 +18,7 @@ Playwright for .NET is the official language port of [Playwright](https://playwr
 
 ## Pull from the original repository
 ```bash
+git fetch upstream main
 git pull upstream main
 ```
 
