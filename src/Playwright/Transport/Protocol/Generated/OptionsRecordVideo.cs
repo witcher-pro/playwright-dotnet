@@ -22,8 +22,15 @@
  * SOFTWARE.
  */
 
+using System.Text.Json.Serialization;
+
 namespace Microsoft.Playwright.Transport.Protocol;
 
-internal class SelectorsInitializer
+internal class OptionsRecordVideo
 {
+    [JsonPropertyName("dir")]
+    public string Dir { get; set; } = null!;
+
+    [JsonPropertyName("size")]
+    public ViewportSize Size { get; set; } = null!;
 }

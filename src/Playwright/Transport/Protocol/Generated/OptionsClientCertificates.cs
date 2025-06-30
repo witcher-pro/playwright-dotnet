@@ -22,9 +22,24 @@
  * SOFTWARE.
  */
 
-namespace Microsoft.Playwright.Transport;
+using System.Text.Json.Serialization;
 
-internal class ErrorEntry
+namespace Microsoft.Playwright.Transport.Protocol;
+
+internal class OptionsClientCertificates
 {
-    public PlaywrightServerError Error { get; set; }
+    [JsonPropertyName("origin")]
+    public string Origin { get; set; } = null!;
+
+    [JsonPropertyName("cert")]
+    public byte[] Cert { get; set; } = null!;
+
+    [JsonPropertyName("key")]
+    public byte[] Key { get; set; } = null!;
+
+    [JsonPropertyName("passphrase")]
+    public string Passphrase { get; set; } = null!;
+
+    [JsonPropertyName("pfx")]
+    public byte[] Pfx { get; set; } = null!;
 }

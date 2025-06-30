@@ -22,16 +22,18 @@
  * SOFTWARE.
  */
 
-using System.Text.Json;
-using Microsoft.Playwright.Transport.Channels;
+using System.Text.Json.Serialization;
 
-namespace Microsoft.Playwright.Transport;
+namespace Microsoft.Playwright.Transport.Protocol;
 
-internal class CreateObjectInfo
+internal class SelectorEngine
 {
-    public string Guid { get; set; }
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = null!;
 
-    public ChannelOwnerType Type { get; set; }
+    [JsonPropertyName("source")]
+    public string Source { get; set; } = null!;
 
-    public JsonElement? Initializer { get; set; }
+    [JsonPropertyName("contentScript")]
+    public bool? ContentScript { get; set; }
 }

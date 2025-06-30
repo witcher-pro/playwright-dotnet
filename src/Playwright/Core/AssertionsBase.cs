@@ -52,20 +52,20 @@ internal class AssertionsBase
 
     protected Locator ActualLocator { get; }
 
-    protected async Task ExpectImplAsync(string expression, ExpectedTextValue textValue, object expected, string message, FrameExpectOptions options)
+    protected async Task ExpectImplAsync(string expression, ExpectedTextValue textValue, object expected, string message, string title, FrameExpectOptions options)
     {
-        await ExpectImplAsync(expression, new ExpectedTextValue[] { textValue }, expected, message, options).ConfigureAwait(false);
+        await ExpectImplAsync(expression, new ExpectedTextValue[] { textValue }, expected, message, title, options).ConfigureAwait(false);
     }
 
-    protected async Task ExpectImplAsync(string expression, ExpectedTextValue[] expectedText, object expected, string message, FrameExpectOptions options)
+    protected async Task ExpectImplAsync(string expression, ExpectedTextValue[]? expectedText, object? expected, string message, string title, FrameExpectOptions options)
     {
         options ??= new();
         options.ExpectedText = expectedText;
         options.IsNot = IsNot;
-        await ExpectImplAsync(expression, options, expected, message).ConfigureAwait(false);
+        await ExpectImplAsync(expression, options, expected, message, title).ConfigureAwait(false);
     }
 
-    protected async Task ExpectImplAsync(string expression, FrameExpectOptions expectOptions, object expected, string message)
+    protected async Task ExpectImplAsync(string expression, FrameExpectOptions expectOptions, object? expected, string message, string title)
     {
         if (expectOptions.Timeout == null)
         {
@@ -75,7 +75,7 @@ internal class AssertionsBase
         {
             message = message.Replace("expected to", "expected not to");
         }
-        var result = await ActualLocator.ExpectAsync(expression, expectOptions).ConfigureAwait(false);
+        var result = await ActualLocator.ExpectAsync(expression, expectOptions, title).ConfigureAwait(false);
         if (result.Matches == IsNot)
         {
             var actual = result.Received;
@@ -88,7 +88,7 @@ internal class AssertionsBase
         }
     }
 
-    protected ExpectedTextValue ExpectedRegex(Regex pattern, ExpectedTextValue options = null)
+    protected ExpectedTextValue ExpectedRegex(Regex pattern, ExpectedTextValue? options = null)
     {
         if (pattern == null)
         {
@@ -101,7 +101,7 @@ internal class AssertionsBase
         return textValue;
     }
 
-    protected FrameExpectOptions ConvertToFrameExpectOptions(object source) => ClassUtils.Clone<FrameExpectOptions>(source);
+    protected FrameExpectOptions ConvertToFrameExpectOptions(object? source) => ClassUtils.Clone<FrameExpectOptions>(source);
 
     private string FormatValue(object value)
     {
