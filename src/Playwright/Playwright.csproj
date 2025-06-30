@@ -24,7 +24,6 @@
     <RepositoryUrl>https://github.com/witcher-pro/playwright-dotnet.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/witcher-pro/playwright-dotnet</PackageProjectUrl>
     <EnablePackageValidation>true</EnablePackageValidation>
-    <PackageValidationBaselineVersion>1.52.0</PackageValidationBaselineVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <Import Project="../Common/Version.props" />
