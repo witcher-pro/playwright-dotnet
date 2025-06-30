@@ -36,6 +36,7 @@ dotnet build
 
 # 5. Now publish a release for nuget.
 dotnet pack -c Release
+# dotnet pack -c Release /p:ApiCompatGenerateSuppressionFile=true
 
 # 6. Push to Nuget registry
 dotnet nuget push .\Playwright\bin\Release\WitcherPro.Playwright.<version>.nupkg -k <api-key-here> -s https://api.nuget.org/v3/index.json
