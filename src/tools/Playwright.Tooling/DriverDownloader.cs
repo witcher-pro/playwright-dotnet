@@ -146,7 +146,7 @@ internal class DriverDownloader
         }
     }
 
-     private async Task PatchFilesAsync(string path)
+    private async Task PatchFilesAsync(string path)
     {
         var serverPath = Path.Combine(path, "package", "lib", "server");
         var chromiumPath = Path.Combine(serverPath, "chromium");
